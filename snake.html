@@ -8,7 +8,7 @@
         background-image: url("./images/bac.jpg");
     }</style>
 </head>
-<body  ;>
+<body>
 <p>ЗМЕЙКА (управление стрелками или кнопками WASD)</p>
 <canvas id="snake" height="700px" width="1500px" height=100% >HTML 5 не поддерживется</canvas>
 <script type="application/javascript">
@@ -34,7 +34,7 @@
     //Функция обнуления змейки при столкновении с хвостом
     function feil() {
         ctx.fillStyle="White"; //Вспышка при столкновении
-        ctx.fillRect(0, 0, xS, yS);
+        //ctx.drawImage(document.getElementById("snake") as HTMLCanvasElement,0, 0);
         xZarr.length=1; //Стираем X-массив змейки до 1 элемента
         yZarr.length=1; //Стираем Y-массив змейки до 1 элемента
         rS=0; //Обнуляем счетчик
@@ -44,7 +44,7 @@
     onkeydown=function(event) {
         event.preventDefault(); //Отменяются исполнения браузером событий event, что-бы не срабатывал скролл(прокрутка) страниц, при нажатии стрелок
         switch(event.which) {
-            case 38: case 87:  yZ=yZ-shift; break; //Вверх
+            case 38: case 87:  yZ=yZ-shift;  break; //Вверх
             case 39: case 68:  xZ=xZ+shift;  break; //Вправо
             case 40: case 83:  yZ=yZ+shift; break; //Вниз
             case 37: case 65:  xZ=xZ-shift; break; //Влево
@@ -55,15 +55,19 @@
     base_image.src = "./images/aa.png";
     //Функция отрисовки кадра через интервал времени
     setInterval(function() {
-        ctx.fillStyle = "url(./images/bac.jpg)";
+
         //Фон и размер игрового поля
-        ctx.fillStyle="#383838";
-        //ctx.fillRect(0, 0, xS, yS);
+
+        ctx.fillRect(0, 0, xS, yS);
 
         //Цвет и позиция фрукта
         ctx.beginPath();
         ctx.arc(xF+qS/2, yF+qS/2, qS/1.6, qS/1.6, Math.PI*2, true); //Разметка оружности
-        ctx.fillStyle="Red"; //Цвет круга
+        //ctx.fillStyle="Red"; //Цвет круга
+        var img = new Image();
+        img.src = './images/bac.jpg';
+        var pat=ctx.createPattern(img, 'repeat');
+        ctx.fillStyle=pat;
         ctx.fill();
         ctx.strokeStyle="Lime"; //Цвет линии окружности
         ctx.stroke();
@@ -84,16 +88,7 @@
         yZarr.unshift(yZ);
 
         //Цвет и цикл вывода массива элементов змейки с отрисовкой
-        for (var i=0; i<=(rS); i++) ctx.drawImage(base_image, xZarr[i]+1, yZarr[i]+1,100, 100);
-
-
-        //Кушаем фрукт, при совпадении координат головы змеи и фрукта - выводим новый фрукт и счетчик +1
-        if (xF==xZ && yF==yZ) {
-
-        } else { //Иначе - стираем хвост, т.е. змейка перемещается без прироста
-            xZarr.pop();
-            yZarr.pop();
-        }
+        for (var i=0; i<=(0); i++) ctx.drawImage(base_image, xZarr[i]+1, yZarr[i]+1,100, 100);
 
         // //Выводим счетчик съеденных фруктов
         // ctx.fillStyle="Black"; //Цвет шрифта счетчика
