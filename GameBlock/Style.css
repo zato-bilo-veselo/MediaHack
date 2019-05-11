@@ -1,0 +1,96 @@
+#GameWindow{
+    background-color: white;
+    width: 530px;
+    height: 330px;
+    color: black;
+    font-size: 30px;
+    padding: 10px;
+    border:solid black 1px;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    color: black;
+    font-family: Myriad Pro, Arial;
+    margin: 0px;
+    background-color: rgb(239,239,239);
+}
+.menu_header {
+    float:right;
+    margin-top:40px;
+}
+.clearfix:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+header {
+    background-color: antiquewhite;
+    height: 70px;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:30px;
+    padding: 30px;
+    margin-bottom:10px;
+}
+.conteiner {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-grow: 1;
+    text-align: center;
+}
+p {
+    margin:0px;
+}
+.ImageBox{
+    margin-top: 60px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-grow: 1;
+    text-align: center;
+}
+.ImageBox img{
+    width: 120px;
+    height:120px;
+}
+.ImageAsk{
+    background-color: #FFFF33;
+    width: 120px;
+    height: 120px;
+}
+#myProgress {
+    width: 100%;
+    height: 30px;
+    margin-top: 40px;
+    color:yellow;
+    font-size: 0px;
+}
+
+#myBar1 {
+    width:0;
+    height: 30px;
+    background-color: green;
+    display: inline-block;
+    font-size: 19px;
+}
+#myBar2 {
+    width:0;
+    height: 30px;
+    background-color: blue;
+    display: inline-block;
+    font-size: 19px;
+}
+#myBar3 {
+    width:0;
+    height: 30px;
+    background-color: red;
+    display: inline-block;
+    font-size: 19px;
+}
